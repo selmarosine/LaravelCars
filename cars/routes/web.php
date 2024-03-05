@@ -19,3 +19,6 @@ Route::get('/', function () {
 })->name('login')->middleware('guest');
 
 Route::post('login', LoginController::class);
+Route::get('show', function () {
+    return view('showCar');
+});

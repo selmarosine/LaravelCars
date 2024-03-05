@@ -1,3 +1,6 @@
+<?php
+use Illuminate\Support\Facades\DB;
+?>
 @include('nav.header')
 <main>
     <h1>
@@ -9,6 +12,7 @@
         <button type="submit" name="submitReg">Submit</button>
     </form>
 
+    <a href="show">Show List</a>
     <div style="margin-top: 55px;">
         <h3>Already have an account? Sign in:</h3>
         <form method="POST" action="{{ url('/login') }}">
