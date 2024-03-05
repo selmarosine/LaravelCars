@@ -13,6 +13,7 @@ class Car extends Model
         'regnr',
         'pris',
         'datum',
+        'userID',
         /* 'email',
         'password', */
     ];

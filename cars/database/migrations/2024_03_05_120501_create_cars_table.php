@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cars', function (Blueprint $table) {
-            $table->id();
-            //$table->primary('id');
+            $table->id()->autoIncrement();
+            $table->integer('userID');
             $table->string('regnr')->unique();
-            //$table->id('userID')->autoIncrement();
             $table->integer('pris');
             $table->date('datum');
             $table->timestamps();
