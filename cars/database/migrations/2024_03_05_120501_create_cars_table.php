@@ -16,10 +16,9 @@ return new class extends Migration
             //$table->primary('id');
             //$table->timestamps();
             $table->string('regnr')->unique();
-            $table->string('namn');
+            $table->integer('userID');
             $table->integer('pris');
             $table->date('datum');
-
         });
     }
 
