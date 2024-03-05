@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             //$table->primary('id');
-            //$table->timestamps();
             $table->string('regnr')->unique();
-            $table->integer('userID');
+            //$table->id('userID')->autoIncrement();
             $table->integer('pris');
             $table->date('datum');
+            $table->timestamps();
         });
     }
 
