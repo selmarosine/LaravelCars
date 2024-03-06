@@ -12,9 +12,8 @@ class LoginController extends Controller
         $cred = $request->only('name', 'password');
 
         if (Auth::attempt($cred)) {
-            return redirect('/dashboard');
-        }
-        else {
+            return redirect('/show');
+        } else {
             // selma lägg till errors
             return redirect()->back()->with('Error');
         }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckBookingController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,5 @@ Route::post('login', LoginController::class);
 Route::get('show', function () {
     return view('showCar');
 });
+
+Route::post('/schedule', [CheckBookingController::class, 'scheduleCar'])->name('schedule.car');
