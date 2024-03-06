@@ -20,6 +20,7 @@ class CheckBookingController extends Controller
     }
 
     //Adds a car to the database. Need to solve name/ ID.
+    //Where/ how do we set price? 'userID' should probably be set to the current logged in users ID.
     public function scheduleCar(Request $request)
     {
         $validation = $request->validate([
