@@ -1,0 +1,83 @@
+/* General styling */
+body {
+    margin: 0;
+    background-color: rgb(243, 238, 231);
+}
+
+main {
+    margin: 0 16px;
+}
+
+button {
+    width: fit-content;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* Header styling */
+.mainHeader {
+    background-image: url("../assets/images/cars_banner.jpg");
+    font-family: Arial, Helvetica, sans-serif;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerTextContainer {
+    background-color: rgb(210, 185, 155);
+    padding: 15px;
+    width: fit-content;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Footer styling */
+.mainFooter {
+    padding: 25px 0;
+    text-align: center;
+    border-top: 5px double rgb(135, 124, 72);
+    margin-top: 50px;
+}
+
+/* showCar page styling */
+.scheduledCar {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.dateBoxContents {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dateBoxContents form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.carOptions {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: fit-content;
+}
+
+.alertMsg {
+    background-color: rgb(184, 222, 127);
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.alertMsg p {
+    margin: 0;
+}

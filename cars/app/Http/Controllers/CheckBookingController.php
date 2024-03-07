@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Models\Car;
 
 class CheckBookingController extends Controller
 {
@@ -17,10 +19,56 @@ class CheckBookingController extends Controller
         return view('/', ['cars' => $cars]);
     }
 
-    /* public function userCars(): View
+    //Adds a car to the database. Need to solve name/ ID.
+    //Where/ how do we set price? 'userID' should probably be set to the current logged in users ID.
+    public function scheduleCar(Request $request)
     {
-        //$cars = DB::table('cars')->get()->where();
+        $validation = $request->validate([
+            'userID' => 'required|integer',
+            'regNo' => 'required|string|max:20',
+            'date' => 'required|date'
+        ]);
 
-        return view('/', ['cars' => $cars]);
-    } */
+        $car = new Car();
+        $car->regnr = $validation['regNo'];
+        $car->datum = $validation['date'];
+        $car->userID = $validation['userID'];
+        $car->pris = 500;
+        $car->save();
+
+        return redirect('/show')->with('success', 'Car scheduled for destruction');
+    }
+
+    //delete a car from database based on registration number to cancel "destruction"
+    public function deleteCar(string $regNo)
+    {
+        $car = Car::where('regnr', $regNo)->first();
+
+        if (!$car) {
+            return redirect()->back()->with('error', 'Car not found.');
+        }
+
+        $car->delete();
+
+        return redirect()->back()->with('success', 'Destruction cancelled for ' . $regNo . ', have a nice day.');
+    }
+
+    //used to update the "date" value of a car already in the database
+    public function updateDate(Request $request, string $regNo)
+    {
+        $validateDate = $request->validate([
+            'date' => 'required|date'
+        ]);
+
+        $car = Car::where('regnr', $regNo)->first();
+
+        if (!$car) {
+            return redirect()->back()->with('error', 'Car not booked for destruction');
+        }
+
+        $car->datum = $validateDate['date'];
+        $car->save();
+
+        return redirect()->back()->with('success', 'Date updated for ' . $regNo . ".");
+    }
 }
