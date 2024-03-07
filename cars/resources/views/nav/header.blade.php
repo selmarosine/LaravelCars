@@ -10,7 +10,7 @@
 </head>
 <header class="mainHeader">
     <div class="headerTextContainer">
-        <h1>Lil' Joe's Funeral Home</h1>
+        <h1>Lil' Joe's Scrapyard</h1>
         <h4>- A final resting place for your best friend -</h4>
     </div>
 </header>

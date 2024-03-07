@@ -36,13 +36,39 @@ class CheckBookingController extends Controller
         $car->pris = 500;
         $car->save();
 
-        return redirect('/show')->with('success', 'Car scheduled for destruciton');
+        return redirect('/show')->with('success', 'Car scheduled for destruction');
     }
 
-    /* public function userCars(): View
+    //delete a car from database based on registration number to cancel "destruction"
+    public function deleteCar(string $regNo)
     {
-        //$cars = DB::table('cars')->get()->where();
+        $car = Car::where('regnr', $regNo)->first();
 
-        return view('/', ['cars' => $cars]);
-    } */
+        if (!$car) {
+            return redirect()->back()->with('error', 'Car not found.');
+        }
+
+        $car->delete();
+
+        return redirect()->back()->with('success', 'Destruction cancelled for ' . $regNo . ', have a nice day.');
+    }
+
+    //used to update the "date" value of a car already in the database
+    public function updateDate(Request $request, string $regNo)
+    {
+        $validateDate = $request->validate([
+            'date' => 'required|date'
+        ]);
+
+        $car = Car::where('regnr', $regNo)->first();
+
+        if (!$car) {
+            return redirect()->back()->with('error', 'Car not booked for destruction');
+        }
+
+        $car->datum = $validateDate['date'];
+        $car->save();
+
+        return redirect()->back()->with('success', 'Date updated for ' . $regNo . ".");
+    }
 }
