@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CheckBookingController;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,9 +25,9 @@ Route::get('show', function () {
     return view('showCar');
 });
 //Route for scheduling of car destruction, calls the scheduleCar method
-Route::post('/schedule', [CheckBookingController::class, 'scheduleCar'])->name('schedule.car');
+Route::post('/schedule', [CarController::class, 'scheduleCar'])->name('schedule.car');
 //Route for cancelling car destruction,
 //calls the deleteCar method which deletes a car from the database based on reg number provided.
-Route::delete('/cars/{regnr}', [CheckBookingController::class, 'deleteCar'])->name('delete.car');
+Route::delete('/cars/{regnr}', [CarController::class, 'deleteCar'])->name('delete.car');
 //Route for updating the "date" value on a car in the database. If user wants to change their specified destruction date
-Route::put('/cars/{regnr}', [CheckBookingController::class, 'updateDate'])->name('update.date');
+Route::put('/cars/{regnr}', [CarController::class, 'updateDate'])->name('update.date');
