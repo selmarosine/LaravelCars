@@ -1,0 +1,35 @@
+/* General styling */
+body {
+    margin: 0;
+}
+
+main {
+    margin: 0 16px;
+}
+
+/* Header styling */
+.mainHeader {
+    background-image: url("../assets/images/cars_banner.jpg");
+    font-family: Arial, Helvetica, sans-serif;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerTextContainer {
+    background-color: rgb(210, 185, 155);
+    padding: 15px;
+    width: fit-content;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Footer styling */
+.mainFooter {
+    padding: 25px 0;
+    text-align: center;
+    border-top: 5px double rgb(135, 124, 72);
+    margin-top: 50px;
+}
