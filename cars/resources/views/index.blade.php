@@ -6,11 +6,15 @@ use Illuminate\Support\Facades\DB;
     <h1>
         Car Destruction
     </h1>
-    <form action="/" method="POST">
+    <form action="{{ url('/book') }}" method="GET">
         <label for="regNo">Enter Reg Number:</label>
         <input type="text" id="regNo">
         <button type="submit" name="submitReg">Submit</button>
     </form>
+
+    @php
+    $regNo = $_POST['regNo'];
+    @endphp
 
     <a href="show">Show List</a>
     <div style="margin-top: 55px;">
