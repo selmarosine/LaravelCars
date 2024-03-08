@@ -6,9 +6,10 @@ use Illuminate\Support\Facades\DB;
     <h1>
         Car Destruction
     </h1>
-    <form action="/" method="POST">
+    <form action="{{ route('submit.form') }}" method="POST">
+        @csrf
         <label for="regNo">Enter Reg Number:</label>
-        <input type="text" id="regNo">
+        <input type="text" id="regNo" name="regNo">
         <button type="submit" name="submitReg">Submit</button>
     </form>
 
