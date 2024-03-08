@@ -5,7 +5,7 @@
 
 <form>
     <div><label for="regNumber">Reg number:</label>
-    <input type="text" name="regNumber" id="regNumber"></div>
+    <input type="text" name="regNumber" id="regNumber" value="{{ session('regNo') }}"></div>
 
     <div><label for="createUser">Create username:</label>
     <input type="text" name="createUser" id="createUser"></div>

@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CheckBookingController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+//use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,9 +29,9 @@ Route::get('show', function () {
 });
 Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 
-Route::get('book', function () {
-    return view('booking');
-});
+Route::get('/book', [BookingController::class, 'showForm'])->name('booking');
+
+Route::post('/book', [BookingController::class, 'submitForm'])->name('submit.form');
 
 //Route for scheduling of car destruction, calls the scheduleCar method
 Route::post('/schedule', [CarController::class, 'scheduleCar'])->name('schedule.car');

@@ -10,8 +10,16 @@ class BookingController extends Controller
      * Handle the incoming request.
      */
 
-    public function __invoke(Request $request)
+    public function showForm()
     {
-        return redirect('/book');
+        return view('booking');
+    }
+
+    public function submitForm(Request $request)
+    {
+        $validatedData = $request->validate([
+            'regNo' => 'required|string',
+        ]);
+        return redirect()->route('booking')->with('regNo', $validatedData['regNo']);
     }
 }
