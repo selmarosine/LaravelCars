@@ -2,15 +2,17 @@
 
 ?>
 @include('nav.header')
-<h1>Time to book some scrapping!</h1>
+
+<h1 class="bookTitle">Time to book some scrapping!</h1>
+<div class="bookSide">
 
 <form>
     <div><label for="regNumber">Reg number:</label>
     <input type="text" name="regNumber" id="regNumber" value="{{ session('regNo') }}"></div>
 
-    <!--ändra detta sen-->
+    <!--ändra detta sen
     <div><label for="price">Price:</label>
-    <input type="text" name="price" id="price" value="500"></div>
+    <input type="text" name="price" id="price" value="500"></div>--->
 
     <div><label for="date">Date:</label>
     <input type="date" id="date" name="date" min="2024-03-01"></div>
@@ -25,5 +27,9 @@
 
     <div><button type="submit">Book scrap</button></div>
 </form>
+
+<div style="margin-top: 50px;"><a href="/">Back to start</a></div>
+
+</div>
 
 @include('nav.footer')

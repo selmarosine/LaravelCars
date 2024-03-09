@@ -26,5 +26,6 @@ use Illuminate\Support\Facades\DB;
             <div><button type="submit" name="submitLogin">Log in</button></div>
         </form>
     </div>
+    
 </main>
 @include('nav.footer')

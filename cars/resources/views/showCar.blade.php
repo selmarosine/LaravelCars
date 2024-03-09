@@ -64,7 +64,7 @@
             <button type="submit" name="addCar">Schedule Destruction</button>
         </form>
     </div>
-    <a href="/">Back to Start</a>
+    <!--<a href="/">Back to Start</a>-->
     <a href="/">Sign out</a>
 </main>
 @include('nav.footer')

@@ -81,3 +81,15 @@ button {
 .alertMsg p {
     margin: 0;
 }
+
+.bookTitle {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.bookSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
