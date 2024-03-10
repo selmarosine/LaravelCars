@@ -1,6 +1,8 @@
-<?php
+@php
+    use Illuminate\Support\Facades\DB;
 
-?>
+    $cars = DB::table('cars')->get();
+@endphp
 @include('nav.header')
 
 <h1 class="bookTitle">Time to book some scrapping!</h1>
