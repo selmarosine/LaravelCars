@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\DB;
 ?>
 @include('nav.header')
@@ -12,7 +13,15 @@ use Illuminate\Support\Facades\DB;
         <input type="text" id="regNo" name="regNo">
         <button type="submit" name="submitReg">Submit</button>
     </form>
-
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <a href="show">Show List</a>
     <div style="margin-top: 55px;">
         <h3>Already have an account? Sign in:</h3>
@@ -26,6 +35,6 @@ use Illuminate\Support\Facades\DB;
             <div><button type="submit" name="submitLogin">Log in</button></div>
         </form>
     </div>
-    
+
 </main>
 @include('nav.footer')
