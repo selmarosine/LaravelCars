@@ -26,7 +26,7 @@
     <div><button type="submit">Book scrap</button></div>
 </form>
 
-<div style="margin-top: 50px;"><a href="/">Back to start</a></div>
+<div class="bookBackButton"><a href="/">Back to start</a></div>
 
 </div>
 
