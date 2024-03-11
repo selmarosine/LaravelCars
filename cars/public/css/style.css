@@ -10,6 +10,7 @@ main {
 
 button {
     width: fit-content;
+    margin-top: 10px;
 }
 
 .bold {
@@ -44,6 +45,11 @@ button {
 }
 
 /* Index page style */
+.indexH3 {
+    margin-top: -2%;
+
+}
+
 .indexTitle {
     text-align: center;
 }
@@ -53,14 +59,23 @@ button {
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap:10%;
+
+    margin-top: 4%;
+    margin-bottom: 4%;
+    gap:7%;
+    height: 250px;
 }
 
-.indexLogin {
-    
-}
+.indexReg, .indexLogin {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: rgb(210, 185, 155);
+    border: 4px solid hsl(0, 0%, 90%);
+    width:20%;
+    height: 95%;
 
-.indexReg {
 
 }
 
