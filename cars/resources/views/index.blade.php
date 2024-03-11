@@ -3,27 +3,27 @@
 use Illuminate\Support\Facades\DB;
 ?>
 @include('nav.header')
-<main>
-    <h1>
-        Car Destruction
-    </h1>
-    <form action="{{ route('submit.form') }}" method="POST">
+<h1 class="indexTitle">
+    Car Destruction
+</h1>
+<main class="indexMain">
+    <form action="{{ route('submit.form') }}" method="POST" class="indexReg">
         @csrf
         <label for="regNo">Enter Reg Number:</label>
         <input type="text" id="regNo" name="regNo">
         <button type="submit" name="submitReg">Submit</button>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     </form>
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-    <a href="show">Show List</a>
-    <div style="margin-top: 55px;">
+
+    <div class="indexLogin">
         <h3>Already have an account? Sign in:</h3>
         <form method="POST" action="{{ url('/login') }}">
             @csrf
@@ -37,4 +37,5 @@ use Illuminate\Support\Facades\DB;
     </div>
 
 </main>
+<a href="show">Show List</a>
 @include('nav.footer')
