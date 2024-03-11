@@ -8,13 +8,9 @@
 <h1 class="bookTitle">Time to book some scrapping!</h1>
 <div class="bookSide">
 
-<form>
+<form class="bookForm">
     <div><label for="regNumber">Reg number:</label>
     <input type="text" name="regNumber" id="regNumber" value="{{ session('regNo') }}"></div>
-
-    <!--ändra detta sen
-    <div><label for="price">Price:</label>
-    <input type="text" name="price" id="price" value="500"></div>--->
 
     <div><label for="date">Date:</label>
     <input type="date" id="date" name="date" min="2024-03-01"></div>
