@@ -9,6 +9,7 @@
     <h2>
         Booked for Destruction
     </h2>
+    {{-- REMOVE THIS, for testing only --}}
     @if (session('userID'))
         <p>{{ session('userID') }}</p>
     @endif
@@ -70,7 +71,9 @@
             <button type="submit" name="addCar">Schedule Destruction</button>
         </form>
     </div>
-    <!--<a href="/">Back to Start</a>-->
-    <a href="/">Sign out</a>
+    <form method="GET" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit">Sign out</button>
+    </form>
 </main>
 @include('nav.footer')

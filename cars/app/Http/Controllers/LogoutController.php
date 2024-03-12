@@ -12,6 +12,7 @@ class LogoutController extends Controller
      */
     public function logout(Request $request)
     {
+        $request->session()->forget('userID');
         Auth::logout();
         return redirect()->route('login');
     }

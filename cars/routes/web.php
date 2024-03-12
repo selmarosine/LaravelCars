@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});//->name('login')->middleware('guest');
+})->name('login');
 
 Route::post('login', [LoginController::class, '__invoke'])->middleware('web');
 

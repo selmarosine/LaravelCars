@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\DB;
             <p>{{ session('error') }}</p>
         </div>
     @endif
+    @if (session('userID'))
+        <p>{{ session('userID') }}</p>
+    @endif
     <div class="indexReg">
         <h3 class="indexH3">New here?</h3>
         <form action="{{ route('submit.form') }}" method="POST">
