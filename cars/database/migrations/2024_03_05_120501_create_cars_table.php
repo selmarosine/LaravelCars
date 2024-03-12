@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->integer('userID');
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users');
             $table->string('regnr')->unique();
-            $table->integer('pris');
             $table->date('datum');
             $table->timestamps();
         });

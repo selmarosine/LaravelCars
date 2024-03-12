@@ -8,7 +8,8 @@
 <h1 class="bookTitle">Time to book some scrapping!</h1>
 <div class="bookSide">
 
-<form class="bookForm">
+<form class="bookForm" method="POST" action="{{ route('new.book') }}">
+    @csrf
     <div><label for="regNumber">Reg number:</label>
     <input type="text" name="regNumber" id="regNumber" value="{{ session('regNo') }}"></div>
 
