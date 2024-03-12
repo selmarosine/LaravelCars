@@ -17,7 +17,6 @@ class CarController extends Controller
     public function scheduleCar(Request $request)
     {
         $validation = $request->validate([
-            //'userID' => 'required|integer',
             'regNo' => 'required|string|max:20',
             'date' => 'required|date'
         ]);
@@ -25,8 +24,7 @@ class CarController extends Controller
         $car = new Car();
         $car->regnr = $validation['regNo'];
         $car->datum = $validation['date'];
-        //$car->userID = $validation['userID'];
-        //$car->pris = 500;
+        $car->userID = session('userID');
         $car->save();
 
         return redirect('/show')->with('success', 'Car scheduled for destruction');
