@@ -10,11 +10,15 @@ class Car extends Model
     use HasFactory;
 
     protected $fillable = [
-        'regnr',
-        'pris',
-        'datum',
         'userID',
+        'regnr',
+        //'pris',
+        'datum',
         /* 'email',
         'password', */
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

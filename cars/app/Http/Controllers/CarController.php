@@ -8,12 +8,16 @@ use App\Models\Car;
 
 class CarController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //Adds a car to the database. Need to solve name/ ID.
     //Where/ how do we set price? 'userID' should probably be set to the current logged in users ID.
     public function scheduleCar(Request $request)
     {
         $validation = $request->validate([
-            'userID' => 'required|integer',
+            //'userID' => 'required|integer',
             'regNo' => 'required|string|max:20',
             'date' => 'required|date'
         ]);
@@ -21,8 +25,8 @@ class CarController extends Controller
         $car = new Car();
         $car->regnr = $validation['regNo'];
         $car->datum = $validation['date'];
-        $car->userID = $validation['userID'];
-        $car->pris = 500;
+        //$car->userID = $validation['userID'];
+        //$car->pris = 500;
         $car->save();
 
         return redirect('/show')->with('success', 'Car scheduled for destruction');
