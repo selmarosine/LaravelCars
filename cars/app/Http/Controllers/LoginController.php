@@ -17,7 +17,7 @@ class LoginController extends Controller
             return redirect()->intended($this->redirectTo);
         } else {
             // selma lägg till errors
-            return redirect()->back()->with('Error');
+            return redirect()->back()->with('error', "Wrong credentials");
         }
     }
 }

@@ -8,23 +8,19 @@ use Illuminate\Support\Facades\DB;
 </h1>
 
 <main class="indexMain">
-    <div class="indexReg">
-    <h3 class="indexH3">New here?</h3>
-    <form action="{{ route('submit.form') }}" method="POST">
-        @csrf
-        <div><label for="regNo">Enter Reg Number:</label></div>
-        <input type="text" id="regNo" name="regNo">
-        <div><button type="submit" name="submitReg">Continue</button></div>
-        @if ($errors->any())
+    @if (session('error'))
         <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+            <p>{{ session('error') }}</p>
         </div>
-        @endif
-    </form>
+    @endif
+    <div class="indexReg">
+        <h3 class="indexH3">New here?</h3>
+        <form action="{{ route('submit.form') }}" method="POST">
+            @csrf
+            <div><label for="regNo">Enter Reg Number:</label></div>
+            <input type="text" id="regNo" name="regNo">
+            <div><button type="submit" name="submitReg">Continue</button></div>
+        </form>
     </div>
 
     <div class="indexLogin">
@@ -41,5 +37,4 @@ use Illuminate\Support\Facades\DB;
     </div>
 
 </main>
-<a href="show">Show List</a>
 @include('nav.footer')
