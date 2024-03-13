@@ -11,6 +11,8 @@ class CarcontrollerTest extends TestCase
 {
     use RefreshDatabase;
 
+
+    //Can't get the test to pass, probably related to userID being a foreign key or something.
     public function test_ScheduleRoute(): void
     {
         //session(['userID' => 1]);
