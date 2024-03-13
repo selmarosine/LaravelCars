@@ -4,6 +4,7 @@ namespace Tests\Feature\Http;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\User;
 use Tests\TestCase;
 
 class CarcontrollerTest extends TestCase
@@ -12,15 +13,19 @@ class CarcontrollerTest extends TestCase
 
     public function test_ScheduleRoute(): void
     {
+        //session(['userID' => 1]);
+        $user = User::factory()->create(['id' => 1]);
         $requestData = [
-            'regNo' => 'abc',
-            'date' => '2024-05-05',
+            'regNo' => 'ABC',
+            'date' => '2025-05-05',
+            'userID' => $user->id
         ];
-        $response = $this->post('schedule', $requestData);
+        $response = $this->actingAs($user)->post('schedule', $requestData);
         $response->assertStatus(302);
         $this->assertDatabaseHas('cars', [
-            'regnr' => 'abc',
-            'datum' => '2024-05-05',
+            'regnr' => 'ABC',
+            'datum' => '2025-05-05',
+            'userID' => $user->id
         ]);
     }
 }
